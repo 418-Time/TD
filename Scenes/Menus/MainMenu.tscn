@@ -93,7 +93,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_bc4mk")
 theme_override_styles/hover = SubResource("StyleBoxFlat_hqtmt")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_tfrft")
 theme_override_styles/normal = SubResource("StyleBoxFlat_uv623")
-text = "options"
+text = "Options"
 
 [node name="exit_button" type="Button" parent="button_container"]
 layout_mode = 2
@@ -130,4 +130,3 @@ vertical_alignment = 1
 
 [connection signal="pressed" from="button_container/start_game_button" to="." method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="button_container/options_button" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="button_container/exit_button" to="." method="_on_exit_button_pressed"]
