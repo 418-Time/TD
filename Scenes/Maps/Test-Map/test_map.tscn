@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3b1w34g4rs4n"]
+
+[ext_resource type="PackedScene" uid="uid://c50qs6yd3syyy" path="res://Scenes/Entities/Basic-Tower/BasicTower.tscn" id="1_g1jdw"]
+[ext_resource type="PackedScene" uid="uid://b0ngkmvbx4ddy" path="res://Scenes/Entities/Sample-Enemy/Sample-enemy.tscn" id="2_5uicl"]
+
+[node name="TestMap" type="Node2D"]
+
+[node name="BasicTower" parent="." instance=ExtResource("1_g1jdw")]
+position = Vector2(388, 268)
+attack_speed = 3
+attack_range_radius = 200
+attack_damage = 3
+attack_enemy_select = 3
+is_attack_radious_visible = true
+
+[node name="Enemy-sample" parent="." instance=ExtResource("2_5uicl")]
+position = Vector2(100, 70)
+
+[node name="Enemy-sample2" parent="." instance=ExtResource("2_5uicl")]
+position = Vector2(261, 70)
+distance_to_base = 9

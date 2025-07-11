@@ -12,4 +12,8 @@ config_version=5
 
 config/name="tower defense"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://bvw1kmog58c62"
+
+[global_group]
+
+Enemy="A global group for detecting enemy units"
