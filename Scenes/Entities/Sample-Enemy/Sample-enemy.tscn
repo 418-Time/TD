@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0ngkmvbx4ddy"]
+
+[ext_resource type="Script" uid="uid://d3ukf74pxi1bq" path="res://Scenes/Entities/Sample-Enemy/enemy.gd" id="1_22re1"]
+[ext_resource type="Texture2D" uid="uid://bvw1kmog58c62" path="res://Assets/Images/icon.svg" id="2_1svci"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1svci"]
+radius = 68.45
+
+[node name="Enemy-sample" type="CharacterBody2D"]
+script = ExtResource("1_22re1")
+speed = 200
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+texture = ExtResource("2_1svci")
+
+[node name="Area2D" type="Area2D" parent="." groups=["Enemy"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+shape = SubResource("CircleShape2D_1svci")
+one_way_collision_margin = 0.0
