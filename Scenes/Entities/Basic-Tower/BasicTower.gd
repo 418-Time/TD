@@ -8,9 +8,10 @@ class_name BasicTower
 @export var attack_enemy_select : enemy_select_types
 @export var is_attack_radious_visible : bool
 @export var enemies_in_range : Array[Node2D]
-var attack_area : Shape2D
-var visible_attack_area : Area2D
-var attack_timer : Timer
+#	loading data from scene
+@onready var attack_area : Shape2D = $AttackArea/AttackCollisionShape.shape
+@onready var visible_attack_area : Area2D = $AttackArea
+@onready var attack_timer : Timer = $AttackTimer
 @onready var tower_gun_hinge: Node2D = $TowerGunHinge
 
 enum enemy_select_types {
@@ -21,9 +22,7 @@ enum enemy_select_types {
 }
 
 func _ready() -> void: 
-	attack_area = get_node_or_null("AttackArea/AttackCollisionShape").shape
-	attack_timer = get_node_or_null("AttackTimer")
-	visible_attack_area = get_node_or_null("AttackArea")
+#	setting variables on tower init 
 	visible_attack_area.visible = is_attack_radious_visible
 	attack_area.radius = attack_range_radius
 	attack_timer.wait_time = attack_speed
@@ -36,9 +35,10 @@ func _process(delta: float) -> void:
 	if enemies_in_range.size() == 0:
 		return
 	if attack_timer.is_stopped():
-		aim_to_target()
-		
-func aim_to_target():
+		var target := aim_to_target()
+		fire_at_target(target)
+
+func aim_to_target() -> Node2D:
 	var target : Node2D
 	match attack_enemy_select:
 		enemy_select_types.FIRST_ENEMY:
@@ -65,7 +65,9 @@ func aim_to_target():
 				if max_health > x.health || max_health == -1:
 					max_health = x.health
 					target = x
-	# samo strzelanie nie wybieranie przeciwnika
+	return target
+
+func fire_at_target(target: Node2D):
 	target.take_damage(attack_damage)
 	tower_gun_hinge.look_at(target.position)
 	attack_timer.start()
@@ -73,10 +75,10 @@ func aim_to_target():
 func _on_attack_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Enemy"):
 		enemies_in_range.append(area.get_parent())
-	pass # Replace with function body.
+	pass 
 
 
 func _on_attack_area_area_exited(area: Area2D) -> void:
 	if area.is_in_group("Enemy"):
 		enemies_in_range.erase(area.get_parent())
-	pass # Replace with function body.
+	pass 
