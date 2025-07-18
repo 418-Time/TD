@@ -22,7 +22,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ti37a")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="background" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,7 +30,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="1" type="Button" parent="Panel"]
+[node name="1" type="Button" parent="background"]
 layout_mode = 0
 offset_left = 721.0
 offset_top = 503.0
@@ -48,7 +48,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_b6107")
 theme_override_styles/normal = SubResource("StyleBoxFlat_dmjpg")
 text = "1"
 
-[node name="2" type="Button" parent="Panel"]
+[node name="2" type="Button" parent="background"]
 layout_mode = 0
 offset_left = 485.0
 offset_top = 427.0
@@ -66,7 +66,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_b6107")
 theme_override_styles/normal = SubResource("StyleBoxFlat_dmjpg")
 text = "2"
 
-[node name="3" type="Button" parent="Panel"]
+[node name="3" type="Button" parent="background"]
 layout_mode = 0
 offset_left = 280.0
 offset_top = 305.0
@@ -84,7 +84,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_b6107")
 theme_override_styles/normal = SubResource("StyleBoxFlat_dmjpg")
 text = "3"
 
-[node name="4" type="Button" parent="Panel"]
+[node name="4" type="Button" parent="background"]
 layout_mode = 0
 offset_left = 713.0
 offset_top = 179.0
@@ -102,7 +102,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_b6107")
 theme_override_styles/normal = SubResource("StyleBoxFlat_dmjpg")
 text = "4"
 
-[node name="5" type="Button" parent="Panel"]
+[node name="5" type="Button" parent="background"]
 layout_mode = 0
 offset_left = 392.0
 offset_top = 65.0
@@ -120,7 +120,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_b6107")
 theme_override_styles/normal = SubResource("StyleBoxFlat_dmjpg")
 text = "5"
 
-[node name="options" type="Button" parent="Panel"]
+[node name="options" type="Button" parent="background"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
 anchors_preset = 1
@@ -143,5 +143,5 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_b6107")
 theme_override_styles/normal = SubResource("StyleBoxFlat_dmjpg")
 text = "||"
 
-[connection signal="pressed" from="Panel/1" to="." method="_on_1_pressed"]
-[connection signal="pressed" from="Panel/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="background/1" to="." method="_on_1_pressed"]
+[connection signal="pressed" from="background/options" to="." method="_on_options_pressed"]

@@ -36,7 +36,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mpdwy")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="background" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -92,7 +92,7 @@ offset_bottom = 288.0
 grow_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_i4y8i")
 
-[node name="options" type="Button" parent="."]
+[node name="options_button" type="Button" parent="."]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
 anchors_preset = 1
@@ -115,7 +115,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_3yvr3")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ik7hg")
 text = "||"
 
-[node name="play" type="Button" parent="."]
+[node name="play_button" type="Button" parent="."]
 offset_left = 974.0
 offset_top = 549.0
 offset_right = 1103.0
@@ -132,7 +132,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_bfl8f")
 theme_override_styles/normal = SubResource("StyleBoxFlat_e268x")
 text = "play"
 
-[node name="back" type="Button" parent="."]
+[node name="back_button" type="Button" parent="."]
 offset_left = 815.0
 offset_top = 549.0
 offset_right = 944.0
@@ -149,5 +149,5 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_bfl8f")
 theme_override_styles/normal = SubResource("StyleBoxFlat_e268x")
 text = "back"
 
-[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="play_button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]
