@@ -130,3 +130,4 @@ vertical_alignment = 1
 
 [connection signal="pressed" from="button_container/start_game_button" to="." method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="button_container/options_button" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="button_container/exit_button" to="." method="_on_exit_button_pressed"]

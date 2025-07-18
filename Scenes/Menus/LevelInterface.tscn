@@ -1,4 +1,18 @@
-[gd_scene format=3 uid="uid://cw7uu184sxeey"]
+[gd_scene load_steps=6 format=3 uid="uid://cw7uu184sxeey"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n2qs3"]
+bg_color = Color(0.682353, 0.682353, 0.682353, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n2qs3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7nfen"]
+bg_color = Color(0.509286, 0.509286, 0.509286, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_67hr8"]
+bg_color = Color(0.306923, 0.306923, 0.306923, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trrwu"]
+bg_color = Color(0.683077, 0.683077, 0.683077, 1)
 
 [node name="LevelInterface" type="Control"]
 layout_mode = 3
@@ -7,3 +21,168 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="cash_panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -140.0
+offset_bottom = 44.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_n2qs3")
+
+[node name="cash_amount" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -134.0
+offset_bottom = 30.0
+grow_horizontal = 0
+text = "$"
+horizontal_alignment = 2
+
+[node name="incoming_tracker" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -302.0
+offset_right = 302.0
+offset_bottom = 44.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_n2qs3")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="options" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n2qs3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7nfen")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_67hr8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_trrwu")
+text = "opt
+"
+
+[node name="pause" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n2qs3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7nfen")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_67hr8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_trrwu")
+text = "||"
+
+[node name="speedup" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n2qs3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7nfen")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_67hr8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_trrwu")
+text = ">>"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -225.0
+offset_bottom = -53.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="turret1" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n2qs3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7nfen")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_67hr8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_trrwu")
+text = "turret1
+"
+
+[node name="turret2" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n2qs3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7nfen")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_67hr8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_trrwu")
+text = "turret2"
+
+[node name="turret3" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n2qs3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7nfen")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_67hr8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_trrwu")
+text = "turret3
+"
+
+[node name="turret4" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n2qs3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7nfen")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_67hr8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_trrwu")
+text = "turret4
+"
