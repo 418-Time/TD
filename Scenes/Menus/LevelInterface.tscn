@@ -1,4 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cw7uu184sxeey"]
+[gd_scene load_steps=8 format=3 uid="uid://cw7uu184sxeey"]
+
+[ext_resource type="Script" uid="uid://b5i8c3h24rceu" path="res://Scenes/Menus/level_interface.gd" id="1_7nfen"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n2qs3"]
 bg_color = Color(0.682353, 0.682353, 0.682353, 1)
@@ -14,6 +16,9 @@ bg_color = Color(0.306923, 0.306923, 0.306923, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trrwu"]
 bg_color = Color(0.683077, 0.683077, 0.683077, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_653rj"]
+bg_color = Color(0.255659, 0.255659, 0.255659, 1)
+
 [node name="LevelInterface" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -21,8 +26,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_7nfen")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="background" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -67,7 +73,7 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="options" type="Button" parent="HBoxContainer"]
+[node name="menu_button" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_vertical = 3
@@ -80,10 +86,10 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_n2qs3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7nfen")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_67hr8")
 theme_override_styles/normal = SubResource("StyleBoxFlat_trrwu")
-text = "opt
+text = "menu
 "
 
-[node name="pause" type="Button" parent="HBoxContainer"]
+[node name="pause_button" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -97,7 +103,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_67hr8")
 theme_override_styles/normal = SubResource("StyleBoxFlat_trrwu")
 text = "||"
 
-[node name="speedup" type="Button" parent="HBoxContainer"]
+[node name="speedup_button" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -124,7 +130,7 @@ offset_bottom = -53.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="turret1" type="Button" parent="VBoxContainer"]
+[node name="turret1_button" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_vertical = 3
@@ -140,7 +146,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_trrwu")
 text = "turret1
 "
 
-[node name="turret2" type="Button" parent="VBoxContainer"]
+[node name="turret2_button" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_vertical = 3
@@ -155,7 +161,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_67hr8")
 theme_override_styles/normal = SubResource("StyleBoxFlat_trrwu")
 text = "turret2"
 
-[node name="turret3" type="Button" parent="VBoxContainer"]
+[node name="turret3_button" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_vertical = 3
@@ -171,7 +177,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_trrwu")
 text = "turret3
 "
 
-[node name="turret4" type="Button" parent="VBoxContainer"]
+[node name="turret4_button" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_vertical = 3
@@ -186,3 +192,320 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_67hr8")
 theme_override_styles/normal = SubResource("StyleBoxFlat_trrwu")
 text = "turret4
 "
+
+[node name="options_panel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -471.5
+offset_top = -265.0
+offset_right = 471.5
+offset_bottom = 265.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="options_panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -198.0
+offset_right = 198.0
+offset_bottom = 61.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 35
+text = "Options"
+horizontal_alignment = 1
+
+[node name="options_category" type="Panel" parent="options_panel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -904.0
+offset_top = -188.0
+offset_right = -694.0
+offset_bottom = 215.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_653rj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="options_panel/options_category"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.5
+offset_top = -181.5
+offset_right = 85.5
+offset_bottom = 181.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="general_button" type="Button" parent="options_panel/options_category/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n2qs3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7nfen")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_67hr8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_trrwu")
+text = "general"
+
+[node name="audio_button" type="Button" parent="options_panel/options_category/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n2qs3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7nfen")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_67hr8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_trrwu")
+text = "audio"
+
+[node name="controlls_button" type="Button" parent="options_panel/options_category/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n2qs3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7nfen")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_67hr8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_trrwu")
+text = "controls"
+
+[node name="sub_general" type="Panel" parent="options_panel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -661.0
+offset_top = -188.0
+offset_right = -29.0
+offset_bottom = 215.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_653rj")
+
+[node name="general_title" type="Label" parent="options_panel/sub_general"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -107.0
+offset_right = 107.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 28
+text = "General"
+horizontal_alignment = 1
+
+[node name="sub_audio" type="Panel" parent="options_panel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -661.0
+offset_top = -188.0
+offset_right = -29.0
+offset_bottom = 215.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_653rj")
+
+[node name="audio_title" type="Label" parent="options_panel/sub_audio"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -107.0
+offset_right = 107.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 28
+text = "Audio"
+horizontal_alignment = 1
+
+[node name="sub_controls" type="Panel" parent="options_panel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -661.0
+offset_top = -188.0
+offset_right = -29.0
+offset_bottom = 215.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_653rj")
+
+[node name="controls_title" type="Label" parent="options_panel/sub_controls"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -107.0
+offset_right = 107.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 28
+text = "Controls"
+horizontal_alignment = 1
+
+[node name="exit_button" type="Button" parent="options_panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -44.0
+offset_right = 1.0
+offset_bottom = 41.0
+grow_horizontal = 0
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n2qs3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7nfen")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_67hr8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_trrwu")
+text = "X"
+
+[node name="menu" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.0
+offset_top = -179.0
+offset_right = 155.0
+offset_bottom = 179.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="menu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -68.0
+offset_right = 69.0
+offset_bottom = 45.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 31
+text = "Menu"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.0
+offset_top = -108.0
+offset_right = 124.0
+offset_bottom = 145.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="resume_button" type="Button" parent="menu/VBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n2qs3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7nfen")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_67hr8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_trrwu")
+text = "Resume"
+
+[node name="options_button" type="Button" parent="menu/VBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n2qs3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7nfen")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_67hr8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_trrwu")
+text = "Options
+"
+
+[node name="Map_button" type="Button" parent="menu/VBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n2qs3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7nfen")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_67hr8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_trrwu")
+text = "Map"
+
+[node name="quit_button" type="Button" parent="menu/VBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n2qs3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7nfen")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_67hr8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_trrwu")
+text = "Quit
+"
+
+[connection signal="pressed" from="HBoxContainer/menu_button" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="options_panel/options_category/VBoxContainer/general_button" to="." method="_on_general_button_pressed"]
+[connection signal="pressed" from="options_panel/options_category/VBoxContainer/audio_button" to="." method="_on_audio_button_pressed"]
+[connection signal="pressed" from="options_panel/options_category/VBoxContainer/controlls_button" to="." method="_on_controlls_button_pressed"]
+[connection signal="pressed" from="options_panel/exit_button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="menu/VBoxContainer/resume_button" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="menu/VBoxContainer/options_button" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="menu/VBoxContainer/Map_button" to="." method="_on_map_button_pressed"]
+[connection signal="pressed" from="menu/VBoxContainer/quit_button" to="." method="_on_quit_button_pressed"]
