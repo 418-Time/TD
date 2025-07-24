@@ -5,5 +5,4 @@
 [node name="Sample-scene" type="Node2D"]
 
 [node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(64, 63)
 texture = ExtResource("1_4vjrs")
