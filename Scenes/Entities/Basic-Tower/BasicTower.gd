@@ -9,8 +9,8 @@ class_name BasicTower
 @export var is_attack_radious_visible : bool
 @export var enemies_in_range : Array[Node2D]
 #	loading data from scene
-@onready var attack_area : Shape2D = $AttackArea/AttackCollisionShape.shape
-@onready var visible_attack_area : Area2D = $AttackArea
+@onready var attack_range : Shape2D = $AttackRange/AttackCollisionShape.shape
+@onready var visible_attack_range : Area2D = $AttackRange
 @onready var attack_timer : Timer = $AttackTimer
 @onready var tower_gun_hinge: Node2D = $TowerGunHinge
 
@@ -23,13 +23,15 @@ enum enemy_select_types {
 
 func _ready() -> void: 
 #	setting variables on tower init 
-	visible_attack_area.visible = is_attack_radious_visible
-	attack_area.radius = attack_range_radius
+	visible_attack_range.visible = is_attack_radious_visible
+	attack_range.radius = attack_range_radius
 	attack_timer.wait_time = attack_speed
+	visible_attack_range.connect("area_entered",_on_attack_area_area_entered)
+	visible_attack_range.connect("area_exited",_on_attack_area_area_exited)
 
 func _on_signal_toggle_attack_area_visible():
 	is_attack_radious_visible = !is_attack_radious_visible
-	visible_attack_area.visible = is_attack_radious_visible
+	visible_attack_range.visible = is_attack_radious_visible
 	
 func _process(delta: float) -> void:
 	if enemies_in_range.size() == 0:

@@ -20,15 +20,12 @@ rotation = 1.57079
 scale = Vector2(0.210937, 0.472656)
 texture = ExtResource("2_reixr")
 
-[node name="AttackArea" type="Area2D" parent="."]
+[node name="AttackRange" type="Area2D" parent="."]
 visible = false
 modulate = Color(0, 0.282353, 0.913725, 0.745098)
 
-[node name="AttackCollisionShape" type="CollisionShape2D" parent="AttackArea"]
+[node name="AttackCollisionShape" type="CollisionShape2D" parent="AttackRange"]
 shape = SubResource("CircleShape2D_cajsm")
 
 [node name="AttackTimer" type="Timer" parent="."]
 one_shot = true
-
-[connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_area_entered"]
-[connection signal="area_exited" from="AttackArea" to="." method="_on_attack_area_area_exited"]
