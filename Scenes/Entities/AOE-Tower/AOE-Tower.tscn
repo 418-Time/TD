@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://4nhq4x2yv60w"]
+
+[ext_resource type="Texture2D" uid="uid://bvw1kmog58c62" path="res://Assets/Images/icon.svg" id="1_4ecnf"]
+[ext_resource type="Script" uid="uid://cn1a6to874nd4" path="res://Scenes/Entities/AOE-Tower/aoe_tower.gd" id="1_frx7m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_frx7m"]
+
+[node name="Aoe-tower" type="Node2D"]
+script = ExtResource("1_frx7m")
+
+[node name="TowerBody" type="Sprite2D" parent="."]
+texture = ExtResource("1_4ecnf")
+
+[node name="TowerGunHinge" type="Node2D" parent="."]
+
+[node name="TowerGun" type="Sprite2D" parent="TowerGunHinge"]
+modulate = Color(1, 0.294118, 0, 1)
+position = Vector2(17, -1.90735e-06)
+rotation = 1.57079
+scale = Vector2(0.210937, 0.472656)
+texture = ExtResource("1_4ecnf")
+
+[node name="AttackArea" type="Area2D" parent="TowerGunHinge"]
+visible = false
+position = Vector2(0, 5.91172e-12)
+
+[node name="AttackAreaShape" type="CollisionPolygon2D" parent="TowerGunHinge/AttackArea"]
+modulate = Color(0.627541, 0.300519, 0.137851, 0.470588)
+
+[node name="AttackRange" type="Area2D" parent="."]
+visible = false
+modulate = Color(0, 0.282353, 0.913725, 0.745098)
+
+[node name="AttackCollisionShape" type="CollisionShape2D" parent="AttackRange"]
+shape = SubResource("CircleShape2D_frx7m")
+
+[node name="AttackTimer" type="Timer" parent="."]
+one_shot = true

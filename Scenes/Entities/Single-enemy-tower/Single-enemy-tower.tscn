@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://bu447wxhwpr1q"]
+
+[ext_resource type="Script" uid="uid://b41r8nh3l6f0t" path="res://Scenes/Entities/Single-enemy-tower/single_enemy_tower.gd" id="1_2ouiy"]
+[ext_resource type="Texture2D" uid="uid://bvw1kmog58c62" path="res://Assets/Images/icon.svg" id="2_weimo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3x4uo"]
+
+[node name="Single-enemy-tower" type="Node2D"]
+script = ExtResource("1_2ouiy")
+
+[node name="TowerBody" type="Sprite2D" parent="."]
+texture = ExtResource("2_weimo")
+
+[node name="TowerGunHinge" type="Node2D" parent="."]
+
+[node name="TowerGun" type="Sprite2D" parent="TowerGunHinge"]
+modulate = Color(1, 0.294118, 0, 1)
+position = Vector2(17, -1.90735e-06)
+rotation = 1.57079
+scale = Vector2(0.210937, 0.472656)
+texture = ExtResource("2_weimo")
+
+[node name="AttackRange" type="Area2D" parent="."]
+visible = false
+modulate = Color(0, 0.282353, 0.913725, 0.745098)
+
+[node name="AttackCollisionShape" type="CollisionShape2D" parent="AttackRange"]
+shape = SubResource("CircleShape2D_3x4uo")
+
+[node name="AttackTimer" type="Timer" parent="."]
+one_shot = true

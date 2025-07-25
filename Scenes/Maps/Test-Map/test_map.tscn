@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3b1w34g4rs4n"]
+
+[ext_resource type="PackedScene" uid="uid://c50qs6yd3syyy" path="res://Scenes/Entities/Basic-Tower/BasicTower.tscn" id="1_g1jdw"]
+[ext_resource type="PackedScene" uid="uid://b0ngkmvbx4ddy" path="res://Scenes/Entities/Sample-Enemy/Sample-enemy.tscn" id="2_5uicl"]
+[ext_resource type="PackedScene" uid="uid://bu447wxhwpr1q" path="res://Scenes/Entities/Single-enemy-tower/Single-enemy-tower.tscn" id="3_5uicl"]
+[ext_resource type="PackedScene" uid="uid://4nhq4x2yv60w" path="res://Scenes/Entities/AOE-Tower/AOE-Tower.tscn" id="4_x2b1q"]
+
+[node name="TestMap" type="Node2D"]
+
+[node name="BasicTower" parent="." instance=ExtResource("1_g1jdw")]
+position = Vector2(50, 633)
+attack_speed = 3
+attack_range_radius = 200
+attack_damage = 3
+attack_enemy_select = 3
+is_attack_radious_visible = true
+
+[node name="Enemy-sample" parent="." instance=ExtResource("2_5uicl")]
+position = Vector2(100, 70)
+
+[node name="Enemy-sample2" parent="." instance=ExtResource("2_5uicl")]
+position = Vector2(261, 70)
+distance_to_base = 9
+
+[node name="Single-enemy-tower" parent="." instance=ExtResource("3_5uicl")]
+position = Vector2(326, 631)
+attack_speed = 3
+attack_range_radius = 200
+attack_damage = 1
+is_attack_radious_visible = true
+
+[node name="Aoe-tower" parent="." instance=ExtResource("4_x2b1q")]
+position = Vector2(748, 281)
+turret_pattern = 1
+attack_speed = 1
+attack_range_radius = 500
+attack_damage = 1
+is_attack_radious_visible = true

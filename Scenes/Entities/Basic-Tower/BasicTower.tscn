@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://c50qs6yd3syyy"]
+
+[ext_resource type="Script" uid="uid://db6etohoxs2c2" path="res://Scenes/Entities/Basic-Tower/BasicTower.gd" id="1_3i6qr"]
+[ext_resource type="Texture2D" uid="uid://bvw1kmog58c62" path="res://Assets/Images/icon.svg" id="2_reixr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cajsm"]
+
+[node name="BasicTower" type="Node2D"]
+script = ExtResource("1_3i6qr")
+
+[node name="TowerBody" type="Sprite2D" parent="."]
+texture = ExtResource("2_reixr")
+
+[node name="TowerGunHinge" type="Node2D" parent="."]
+
+[node name="TowerGun" type="Sprite2D" parent="TowerGunHinge"]
+modulate = Color(1, 0.294118, 0, 1)
+position = Vector2(17, -1.90735e-06)
+rotation = 1.57079
+scale = Vector2(0.210937, 0.472656)
+texture = ExtResource("2_reixr")
+
+[node name="AttackRange" type="Area2D" parent="."]
+visible = false
+modulate = Color(0, 0.282353, 0.913725, 0.745098)
+
+[node name="AttackCollisionShape" type="CollisionShape2D" parent="AttackRange"]
+shape = SubResource("CircleShape2D_cajsm")
+
+[node name="AttackTimer" type="Timer" parent="."]
+one_shot = true
