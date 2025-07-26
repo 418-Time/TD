@@ -9,3 +9,4 @@ script = ExtResource("1_fbujs")
 [node name="back_ground_music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_qpfjf")
 autoplay = true
+bus = &"Music"
