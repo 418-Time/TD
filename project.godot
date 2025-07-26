@@ -18,6 +18,7 @@ config/icon="uid://bvw1kmog58c62"
 [autoload]
 
 GlobalEnemy="*res://Scenes/Global/Enemy/Global_enemy.gd"
+Audio="*res://Scenes/Menus/audio.tscn"
 
 [global_group]
 
