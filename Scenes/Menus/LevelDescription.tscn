@@ -116,6 +116,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ik7hg")
 text = "||"
 
 [node name="play_button" type="Button" parent="."]
+layout_mode = 0
 offset_left = 974.0
 offset_top = 549.0
 offset_right = 1103.0
@@ -133,6 +134,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_e268x")
 text = "play"
 
 [node name="back_button" type="Button" parent="."]
+layout_mode = 0
 offset_left = 815.0
 offset_top = 549.0
 offset_right = 944.0

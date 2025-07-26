@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://k0d5qprhn851"]
+
+[ext_resource type="Script" uid="uid://6jb1m6gf0o2n" path="res://audio.gd" id="1_fbujs"]
+
+[node name="Audio" type="Node"]
+script = ExtResource("1_fbujs")
+
+[node name="back_ground_music" type="AudioStreamPlayer" parent="."]
