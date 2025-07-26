@@ -14,3 +14,7 @@ config/name="tower defense"
 run/main_scene="uid://b2ne2qk3tu66q"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Audio="*res://Scenes/Menus/audio.tscn"
