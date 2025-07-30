@@ -7,6 +7,9 @@
 
 [node name="BasicTower" type="Node2D"]
 script = ExtResource("1_3i6qr")
+attack_speed = 1
+attack_range_radius = 250
+attack_damage = 50
 
 [node name="TowerBody" type="Sprite2D" parent="."]
 texture = ExtResource("2_reixr")
