@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://3i2kyi5c16kj"]
+
+[ext_resource type="PackedScene" uid="uid://dk6yta0diw6xt" path="res://Assets/EnemyBase.tscn" id="1_0g25v"]
+
+[sub_resource type="Curve2D" id="Curve2D_sdd40"]
+bake_interval = 0.01
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 606, 355, 0, 0, 0, 0, 607, 359, 0, 0, 0, 0, 608, 173, 0, 0, 0, 0, 298, 174, 0, 0, 0, 0, 302, 356)
+}
+point_count = 5
+
+[node name="MobsMechanicsPathfinding" type="Node2D"]
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_sdd40")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(606, 355)
+rotation = 1.32582
+scale = Vector2(0.25, 0.25)
+
+[node name="EnemyBase" parent="Path2D/PathFollow2D" instance=ExtResource("1_0g25v")]
+position = Vector2(0.970112, -3.88047)
+rotation = 1.56798
