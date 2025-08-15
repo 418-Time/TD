@@ -14,6 +14,10 @@ config/name="tower defense"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="uid://bvw1kmog58c62"
 
+[autoload]
+
+GlobalEnemy="*res://Scenes/Global/Enemy/Global_enemy.gd"
+
 [global_group]
 
 Enemy="A global group for detecting enemy units"
