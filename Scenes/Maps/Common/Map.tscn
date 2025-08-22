@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://berxq0ah0dn4n" path="res://Scenes/Maps/Common/MapScript.gd" id="1_tgh5g"]
 [ext_resource type="TileSet" uid="uid://dlk1lnkqjxrj1" path="res://Scenes/Maps/Common/dev_tile_set.tres" id="2_qqos6"]
-[ext_resource type="Script" uid="uid://ubkal08vqp55" path="res://Scenes/Maps/Common/EnemySpawner.gd" id="4_shgqj"]
+[ext_resource type="PackedScene" uid="uid://e7onf5phloj4" path="res://Scenes/Maps/Logic-Test/game_logic.tscn" id="4_pshhu"]
 
 [sub_resource type="Curve2D" id="Curve2D_shgqj"]
 _data = {
@@ -27,6 +27,11 @@ curve = SubResource("Curve2D_shgqj")
 position = Vector2(2, 80)
 rotates = false
 
-[node name="Spawner" type="Node2D" parent="EnemyPath"]
-position = Vector2(1, 81)
-script = ExtResource("4_shgqj")
+[node name="GameLogic" parent="." node_paths=PackedStringArray("enemy_parent_node", "paths") instance=ExtResource("4_pshhu")]
+position = Vector2(457.917, 802.784)
+wave_number = 3
+wave_length = 1.0
+concurrent_waves = 1
+enemy_parent_node = NodePath("../EnemyPath")
+paths = [NodePath("../EnemyPath/EnemyPathFollow")]
+wave_file_path = "res://Scenes/Maps/waves/test_waves.xml"

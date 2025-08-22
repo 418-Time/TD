@@ -2,10 +2,11 @@ extends CharacterBody2D
 class_name BaseEnemy
 
 # Enemy properties
-var _speed: float = 100.0
-var _health: float = 100.0
-var _cash_drop: int = 50
-@export var distance_to_base := 10
+@export var _speed: float = 100.0
+@export var _health: float = 100.0
+@export var _cash_drop: int = 50
+@export var distance_to_base : float
+@export var _damage_to_base: int = 1
 # Reference to PathFollow2D node
 var path_follow: PathFollow2D
 
@@ -36,6 +37,8 @@ func set_health(new_health: float) -> void:
 	emit_signal("health_changed", _health)
 	if _health <= 0:
 		emit_signal("enemy_died")
+		get_parent().queue_free()
+		queue_free()
 
 func set_cash_drop(new_cash_drop: int) -> void:
 	if new_cash_drop >= 0:
@@ -46,6 +49,8 @@ func set_cash_drop(new_cash_drop: int) -> void:
 func take_damage(damage: int) -> void:
 	set_health(_health - damage)
 	if _health <= 0:
+		emit_signal("enemy_died")
+		get_parent().queue_free()
 		queue_free()
 
 func heal(amount: float) -> void:
@@ -55,6 +60,7 @@ func _ready() -> void:
 	# Initialize enemy with default values
 	# Assumes this node is a child of PathFollow2D
 	path_follow = get_parent() as PathFollow2D
+	path_follow.loop = false
 	if not path_follow:
 		push_error("BaseEnemy must be a child of PathFollow2D")
 
@@ -62,5 +68,7 @@ func _process(delta: float) -> void:
 	if path_follow:
 		# Update PathFollow2D's progress based on speed
 		path_follow.progress += _speed * delta
-		if path_follow.progress_ratio >= 1.0:
-			queue_free() # TODO : Damage Base
+		distance_to_base = path_follow.progress_ratio
+		if path_follow.progress_ratio == 1.0:
+			GlobalEnemy.enemy_at_base.emit(_damage_to_base)
+			set_health(0)
