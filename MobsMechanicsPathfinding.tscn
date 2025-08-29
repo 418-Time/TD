@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://g480qgucfi2q"]
+
+[ext_resource type="PackedScene" uid="uid://dk6yta0diw6xt" path="res://Scenes/Entities/Basic-Enemy/EnemyBase.tscn" id="1_0g25v"]
+[ext_resource type="PackedScene" uid="uid://c50qs6yd3syyy" path="res://Scenes/Entities/Basic-Tower/BasicTower.tscn" id="2_sdd40"]
+
+[sub_resource type="Curve2D" id="Curve2D_sdd40"]
+bake_interval = 0.01
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 606, 355, 0, 0, 0, 0, 711, 357, 0, 0, 0, 0, 712, 172, 0, 0, 0, 0, 298, 174, 0, 0, 0, 0, 302, 356)
+}
+point_count = 5
+
+[node name="MobsMechanicsPathfinding" type="Node2D"]
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_sdd40")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(606, 355)
+scale = Vector2(0.25, 0.25)
+rotates = false
+
+[node name="EnemyBase" parent="Path2D/PathFollow2D" instance=ExtResource("1_0g25v")]
+position = Vector2(-4.00002, -3.99997)
+
+[node name="BasicTower" parent="." instance=ExtResource("2_sdd40")]
+position = Vector2(654, 222)
+scale = Vector2(0.2, 0.2)
+attack_range_radius = 200
+attack_damage = 1000

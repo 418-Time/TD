@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://e7onf5phloj4"]
+
+[ext_resource type="Script" uid="uid://b1avi43xup4ix" path="res://Scenes/Maps/Logic-Test/game_logic.gd" id="1_s4at8"]
+
+[node name="GameLogic" type="Node2D"]
+script = ExtResource("1_s4at8")
+
+[node name="WaveTimer" type="Timer" parent="."]
