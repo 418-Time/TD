@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://38n57bfta813"]
+
+[ext_resource type="Script" uid="uid://dhopjqsf3s06h" path="res://Scenes/Entities/Fast-Enemy/Fast_Enemy.gd" id="1_dpp2i"]
+[ext_resource type="Texture2D" uid="uid://bvw1kmog58c62" path="res://Assets/Images/icon.svg" id="2_gtge1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_shk4u"]
+radius = 68.45
+
+[node name="FastEnemy" type="CharacterBody2D"]
+script = ExtResource("1_dpp2i")
+_speed = 200.0
+
+[node name="EnemyBaseTexture" type="Sprite2D" parent="."]
+modulate = Color(1, 0.490196, 0.333333, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_gtge1")
+
+[node name="Area2D" type="Area2D" parent="." groups=["Enemy"]]
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_shk4u")
+one_way_collision_margin = 0.0
+debug_color = Color(0.975427, 0.0350197, 0.393432, 0.42)
