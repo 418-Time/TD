@@ -4,7 +4,7 @@ extends Node2D
 @export var health : int = 10
 @export var enemy_stack: Array
 @export var waves : Array
-@export var wave_number : int
+@export var wave_number : int = 0
 # deafultowy wait time pomiędzy spawnem przeciwników to wpływa na formułę do ustalenia jeszcze w _process
 @export var wave_length : float
 @export var concurrent_waves : int
@@ -25,10 +25,11 @@ func _ready() -> void:
 	var temp_player = player.new()
 	Player_array.append(temp_player)
 	GlobalEnemy.enemy_at_base.connect(take_damage)
-	
+	wave_number = -1
+	wave_timer.start()
 	
 func _process(delta: float) -> void:
-	if enemy_stack.size() == 0 and not enemy_parent_node.get_children().any(func(e): return e.is_in_group("Enemy")):
+	if enemy_stack.size() == 0 and not enemy_parent_node.get_children().any(func(e): return e.is_in_group("Enemy")) and not wave_timer.is_stopped():
 		wave_timer.stop()
 		skip_to_next_wave()
 		concurrent_waves = 1

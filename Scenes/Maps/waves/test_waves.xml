@@ -1,17 +1,17 @@
 <waves>
 	<wave id="1">
-		<enemy type="TEST" path="0"  />
-		<enemy type="TEST" path="0"  />
-		<enemy type="TEST2" path="0"  />
+		<enemy type="SMALL_ENEMY" path="0"  />
+		<enemy type="SMALL_ENEMY" path="0"  />
+		<enemy type="SMALL_ENEMY" path="0"  />
 	</wave>
 	
 	<wave id="2">
-		<enemy type="TEST" path="0" />
-		<enemy type="TEST2" path="0" />
-		<enemy type="TEST2" path="0"  />
+		<enemy type="FAST_ENEMY" path="0" />
+		<enemy type="TANKY_ENEMY" path="0" />
+		<enemy type="TANKY_ENEMY" path="0"  />
 	</wave>
 
 	<wave id="3">
-		<enemy type="TEST3" path="0"  />
+		<enemy type="SPAWNING_ENEMY" path="0"  />
 	</wave>
 </waves>

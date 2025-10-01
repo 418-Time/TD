@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bq8rp1acifwig"]
+
+[ext_resource type="Script" uid="uid://cc11k4j7th5n6" path="res://Scenes/Entities/Small-Enemy/Small_Enemy.gd" id="1_bmtkw"]
+[ext_resource type="Texture2D" uid="uid://bvw1kmog58c62" path="res://Assets/Images/icon.svg" id="2_d25pd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bmtkw"]
+radius = 68.45
+
+[node name="SmallEnemy" type="CharacterBody2D"]
+script = ExtResource("1_bmtkw")
+
+[node name="EnemyBaseTexture" type="Sprite2D" parent="."]
+texture = ExtResource("2_d25pd")
+
+[node name="Area2D" type="Area2D" parent="." groups=["Enemy"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_bmtkw")
+one_way_collision_margin = 0.0
+debug_color = Color(0.975427, 0.0350197, 0.393432, 0.42)
