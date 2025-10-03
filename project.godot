@@ -17,6 +17,8 @@ config/icon="uid://bvw1kmog58c62"
 [autoload]
 
 GlobalEnemy="*res://Scenes/Global/Enemy/Global_enemy.gd"
+GlobalPlayer="*res://Scenes/Global/Player/Global_Player.gd"
+GlobalTower="*res://Scenes/Global/Towers/Global_Tower.gd"
 
 [global_group]
 

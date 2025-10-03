@@ -1,4 +1,5 @@
 class_name wave_enemy
+# class used to load enemy types from file
 
 var type: GlobalEnemy.enemy_types
 var path: int
