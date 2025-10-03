@@ -6,7 +6,7 @@ class_name SpawningEnemy
 @onready var spawn_timer: Timer = $SpawnTimer
 
 func spawn_minion():
-	var spawned = GlobalEnemy.enemy_dict[_spawn_type]
+	var spawned = GlobalEnemy.enemy_dict.find_key(_spawn_type)
 	spawned = spawned.instantiate()
 	#get correct path of enemy and spawn enemy in path
 	var spawned_pos = get_parent().duplicate()

@@ -14,9 +14,13 @@ extends Node2D
 @export var paths : Array[Node]
 @export_file("*.xml") var wave_file_path: String = "res://waves/enemies.xml"
 var xml := XMLParser.new()
-var max_waves : int 
+var max_waves : int
 
 func _ready() -> void:
+	#manualy changing selected level to 1 for ease of work
+	GlobalGameLogic.selected_level=1
+	#	changed enemy waves to be spawned from global dict
+	wave_file_path = GlobalGameLogic.wave_dict[GlobalGameLogic.selected_level]
 	read_waves()
 	max_waves = waves.size()
 	wave_timer.set_wait_time(wave_length)
@@ -87,3 +91,16 @@ func spawn_enemy():
 
 func take_damage(damage:int):
 	health -= damage
+
+func pause_game():
+	GlobalGameLogic.game_paused = !GlobalGameLogic.game_paused
+	wave_timer.set_paused(GlobalGameLogic.game_paused)
+	
+func resume_game():
+	GlobalGameLogic.game_paused = false
+	wave_timer.set_paused(false)
+
+
+func _on_level_interface_pause() -> void:
+	pause_game()
+	pass # Replace with function body.

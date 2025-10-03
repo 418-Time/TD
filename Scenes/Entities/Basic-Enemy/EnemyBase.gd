@@ -36,7 +36,9 @@ func set_health(new_health: float) -> void:
 	_health = max(0, new_health)
 	emit_signal("health_changed", _health)
 	if _health <= 0:
-		_enemy_died()
+		emit_signal("enemy_died")
+		get_parent().queue_free()
+		queue_free()
 
 func set_cash_drop(new_cash_drop: int) -> void:
 	if new_cash_drop >= 0:
@@ -47,7 +49,9 @@ func set_cash_drop(new_cash_drop: int) -> void:
 func take_damage(damage: int) -> void:
 	set_health(_health - damage)
 	if _health <= 0:
-		_enemy_died()
+		emit_signal("enemy_died")
+		get_parent().queue_free()
+		queue_free()
 
 func heal(amount: float) -> void:
 	set_health(_health + amount)
@@ -60,13 +64,10 @@ func _ready() -> void:
 	if not path_follow:
 		push_error("BaseEnemy must be a child of PathFollow2D")
 
-func _enemy_died() -> void:
-	emit_signal("enemy_died")
-	get_parent().queue_free()
-	queue_free()
-	
 func _process(delta: float) -> void:
-	if path_follow:
+	if GlobalGameLogic.game_paused == true:
+		pass
+	elif path_follow:
 		# Update PathFollow2D's progress based on speed
 		path_follow.progress += _speed * delta
 		distance_to_base = path_follow.progress_ratio

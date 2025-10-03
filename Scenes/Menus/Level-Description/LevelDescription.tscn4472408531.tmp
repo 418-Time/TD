@@ -1,0 +1,155 @@
+[gd_scene load_steps=11 format=3 uid="uid://dbif5fnwv5ijl"]
+
+[ext_resource type="Script" uid="uid://b7pcabreatv75" path="res://Scenes/Menus/Level-Description/level_description.gd" id="1_mpdwy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i4y8i"]
+bg_color = Color(0.682353, 0.682353, 0.682353, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mpdwy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05poc"]
+bg_color = Color(0.509286, 0.509286, 0.509286, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3yvr3"]
+bg_color = Color(0.306923, 0.306923, 0.306923, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ik7hg"]
+bg_color = Color(0.683077, 0.683077, 0.683077, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i4y8i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mpdwy"]
+bg_color = Color(0.509286, 0.509286, 0.509286, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bfl8f"]
+bg_color = Color(0.306923, 0.306923, 0.306923, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e268x"]
+bg_color = Color(0.683077, 0.683077, 0.683077, 1)
+
+[node name="LevelDescription" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mpdwy")
+
+[node name="background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="map_preview" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1130.0
+offset_top = 17.0
+offset_right = -681.0
+offset_bottom = 288.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_i4y8i")
+
+[node name="enemies_preview" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1130.0
+offset_top = 355.0
+offset_right = -681.0
+offset_bottom = 625.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_i4y8i")
+
+[node name="available_turrets" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -559.0
+offset_top = 17.0
+offset_right = -337.0
+offset_bottom = 288.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_i4y8i")
+
+[node name="equipped_turrets" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -296.0
+offset_top = 17.0
+offset_right = -74.0
+offset_bottom = 288.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_i4y8i")
+
+[node name="options_button" type="Button" parent="."]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -56.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 56.0
+grow_horizontal = 0
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mpdwy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_05poc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3yvr3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ik7hg")
+text = "||"
+
+[node name="play_button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 974.0
+offset_top = 549.0
+offset_right = 1103.0
+offset_bottom = 612.0
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i4y8i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mpdwy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bfl8f")
+theme_override_styles/normal = SubResource("StyleBoxFlat_e268x")
+text = "play"
+
+[node name="back_button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 815.0
+offset_top = 549.0
+offset_right = 944.0
+offset_bottom = 612.0
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i4y8i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mpdwy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bfl8f")
+theme_override_styles/normal = SubResource("StyleBoxFlat_e268x")
+text = "back"
+
+[connection signal="pressed" from="play_button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]

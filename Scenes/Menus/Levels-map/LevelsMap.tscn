@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://brlp5js0lr3os"]
 
-[ext_resource type="Script" uid="uid://bickj3uvjoc8i" path="res://Scenes/Menus/levels_map.gd" id="1_ti37a"]
+[ext_resource type="Script" uid="uid://bickj3uvjoc8i" path="res://Scenes/Menus/Levels-map/levels_map.gd" id="1_ti37a"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ti37a"]
 

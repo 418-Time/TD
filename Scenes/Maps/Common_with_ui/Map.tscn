@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=4 uid="uid://dhexglgv056o3"]
+
+[ext_resource type="Script" uid="uid://berxq0ah0dn4n" path="res://Scenes/Maps/Common/MapScript.gd" id="1_lgxf6"]
+[ext_resource type="TileSet" uid="uid://dlk1lnkqjxrj1" path="res://Scenes/Maps/Common/dev_tile_set.tres" id="2_kenqf"]
+[ext_resource type="PackedScene" uid="uid://e7onf5phloj4" path="res://Scenes/Maps/Logic-Test/game_logic.tscn" id="3_2834q"]
+[ext_resource type="PackedScene" uid="uid://cw7uu184sxeey" path="res://Scenes/Menus/Level-interface/LevelInterface.tscn" id="4_kenqf"]
+
+[sub_resource type="Curve2D" id="Curve2D_shgqj"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2, 80, 0, 0, 0, 0, 208, 80, 0, 0, 0, 0, 208, 46, 0, 0, 0, 0, 369, 46, 0, 0, 0, 0, 370, 144, 0, 0, 0, 0, 488, 145)
+}
+point_count = 6
+
+[node name="Map" type="Node2D"]
+script = ExtResource("1_lgxf6")
+
+[node name="GroundLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAABAAAAAQAUAAAAAAACAAAAAQAUAAAAAAACAAEAAQAUAAAAAAADAAEAAQAUAAAAAAAEAAEAAQAUAAAAAAAFAAIAAQAoAAAAAAAGAAIAAQAoAAAAAAAHAAIAAQAUAAAAAAAEAAIAAQAoAAAAAAABAAEAAQAUAAAAAAABAAIAAQAoAAAAAAABAAMAAQAUAAAAAAABAAQAAQAUAAAAAAABAAUAAQAUAAAAAAACAAIAAQAoAAAAAAACAAMAAQAUAAAAAAACAAQAAQAUAAAAAAACAAUAAQAUAAAAAAADAAAAAQAUAAAAAAADAAIAAQAoAAAAAAADAAMAAQAUAAAAAAADAAQAAQAUAAAAAAADAAUAAQAUAAAAAAAEAAAAAQAUAAAAAAAEAAMAAQAUAAAAAAAEAAQAAQAUAAAAAAAEAAUAAQAUAAAAAAAFAAAAAQAUAAAAAAAFAAEAAQAUAAAAAAAFAAMAAQAUAAAAAAAFAAQAAQAUAAAAAAAFAAUAAQAUAAAAAAAGAAAAAQAUAAAAAAAGAAEAAQAoAAAAAAAGAAMAAQAUAAAAAAAGAAQAAQAUAAAAAAAGAAUAAQAUAAAAAAAHAAAAAQAUAAAAAAAHAAEAAQAoAAAAAAAHAAMAAQAUAAAAAAAHAAQAAQAUAAAAAAAHAAUAAQAUAAAAAAAIAAAAAQAUAAAAAAAIAAEAAQAoAAAAAAAIAAIAAQAUAAAAAAAIAAMAAQAUAAAAAAAIAAQAAQAUAAAAAAAIAAUAAQAUAAAAAAAJAAAAAQAUAAAAAAAJAAEAAQAoAAAAAAAJAAIAAQAUAAAAAAAJAAMAAQAUAAAAAAAJAAQAAQAUAAAAAAAJAAUAAQAUAAAAAAAKAAAAAQAUAAAAAAAKAAEAAQAoAAAAAAAKAAIAAQAUAAAAAAAKAAMAAQAUAAAAAAAKAAQAAQAUAAAAAAAKAAUAAQAUAAAAAAALAAAAAQAUAAAAAAALAAEAAQAoAAAAAAALAAIAAQAoAAAAAAALAAMAAQAoAAAAAAALAAQAAQAoAAAAAAALAAUAAQAUAAAAAAAMAAAAAQAUAAAAAAAMAAEAAQAUAAAAAAAMAAIAAQAUAAAAAAAMAAMAAQAUAAAAAAAMAAQAAQAoAAAAAAAMAAUAAQAUAAAAAAANAAAAAQAUAAAAAAANAAEAAQAUAAAAAAANAAIAAQAUAAAAAAANAAMAAQAUAAAAAAANAAQAAQAoAAAAAAANAAUAAQAUAAAAAAAOAAAAAQAUAAAAAAAOAAEAAQAUAAAAAAAOAAIAAQAUAAAAAAAOAAMAAQAUAAAAAAAOAAQAAQAoAAAAAAAOAAUAAQAUAAAAAAA=")
+tile_set = ExtResource("2_kenqf")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(274, 102)
+
+[node name="EnemyPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_shgqj")
+
+[node name="EnemyPathFollow" type="PathFollow2D" parent="EnemyPath"]
+position = Vector2(2, 80)
+rotates = false
+
+[node name="GameLogic" parent="." node_paths=PackedStringArray("enemy_parent_node", "paths") instance=ExtResource("3_2834q")]
+position = Vector2(457.917, 802.784)
+wave_number = 3
+wave_length = 1.0
+concurrent_waves = 1
+enemy_parent_node = NodePath("../EnemyPath")
+paths = [NodePath("../EnemyPath/EnemyPathFollow")]
+wave_file_path = "res://Scenes/Maps/waves/test_waves.xml"
+
+[node name="LevelInterface" parent="." instance=ExtResource("4_kenqf")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -301.0
+offset_top = -219.0
+offset_right = 847.0
+offset_bottom = 419.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[connection signal="pause" from="LevelInterface" to="GameLogic" method="_on_level_interface_pause"]
