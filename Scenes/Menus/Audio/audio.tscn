@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://k0d5qprhn851"]
+
+[ext_resource type="Script" uid="uid://6jb1m6gf0o2n" path="res://Scenes/Menus/Audio/audio.gd" id="1_46020"]
+[ext_resource type="AudioStream" uid="uid://mblt0cprf3bx" path="res://Assets/Music/music.wav" id="2_el8wv"]
+
+[node name="Audio" type="Node"]
+script = ExtResource("1_46020")
+
+[node name="back_ground_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_el8wv")
+autoplay = true
+bus = &"Music"

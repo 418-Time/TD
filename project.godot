@@ -15,12 +15,17 @@ run/main_scene="uid://b2ne2qk3tu66q"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="uid://bvw1kmog58c62"
 
+[audio]
+
+buses/default_bus_layout="res://Scenes/Menus/Level-interface/default_bus_layout.tres"
+
 [autoload]
 
 GlobalEnemy="*res://Scenes/Global/Enemy/Global_enemy.gd"
 GlobalPlayer="*res://Scenes/Global/Player/Global_Player.gd"
 GlobalTower="*res://Scenes/Global/Towers/Global_Tower.gd"
-Audio="*res://Scenes/Menus/audio.tscn"
+Audio="*res://Scenes/Menus/Audio/audio.tscn"
+GlobalGameLogic="*res://Scenes/Global/Game/Global_Game_logic.gd"
 
 [global_group]
 

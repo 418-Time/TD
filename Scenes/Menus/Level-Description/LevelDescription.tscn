@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://dbif5fnwv5ijl"]
 
-[ext_resource type="Script" uid="uid://b7pcabreatv75" path="res://Scenes/Menus/level_description.gd" id="1_mpdwy"]
+[ext_resource type="Script" uid="uid://b7pcabreatv75" path="res://Scenes/Menus/Level-Description/level_description.gd" id="1_mpdwy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i4y8i"]
 bg_color = Color(0.682353, 0.682353, 0.682353, 1)
