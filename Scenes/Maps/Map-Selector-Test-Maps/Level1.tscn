@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://db5u5svcumx4i"]
+
+[ext_resource type="Script" uid="uid://cd41htrbnjvq5" path="res://Scenes/Maps/Map-Selector-Test-Maps/temp-level-completor.gd" id="1_0m58c"]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_0m58c")
+metadata/Stage = 1

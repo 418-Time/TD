@@ -1,0 +1,63 @@
+[gd_scene load_steps=2 format=3 uid="uid://b62qp8jveekcc"]
+
+[ext_resource type="Script" uid="uid://cir62xrvxed72" path="res://Scenes/Menus/Map-Selector/level_selector.gd" id="2_qnnqn"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 5.0
+offset_right = 3.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.986056, 0.98981)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 82.1455
+offset_top = 71.7309
+offset_right = 182.145
+offset_bottom = 244.731
+script = ExtResource("2_qnnqn")
+
+[node name="LevelContainer1" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Button1" type="Button" parent="VBoxContainer/LevelContainer1"]
+layout_mode = 2
+text = "Level1
+"
+
+[node name="Indicator1" type="ColorRect" parent="VBoxContainer/LevelContainer1"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+color = Color(1, 0, 0, 1)
+
+[node name="LevelContainer2" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="VBoxContainer/LevelContainer2"]
+layout_mode = 2
+text = "Level2
+"
+
+[node name="Indicator2" type="ColorRect" parent="VBoxContainer/LevelContainer2"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+color = Color(1, 0, 0, 1)
+
+[node name="LevelContainer3" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Button3" type="Button" parent="VBoxContainer/LevelContainer3"]
+layout_mode = 2
+text = "Level3
+"
+
+[node name="Indicator3" type="ColorRect" parent="VBoxContainer/LevelContainer3"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+color = Color(1, 0, 0, 1)
