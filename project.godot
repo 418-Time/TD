@@ -22,9 +22,9 @@ buses/default_bus_layout="res://Scenes/Menus/Level-interface/default_bus_layout.
 [autoload]
 
 GlobalEnemy="*res://Scenes/Global/Enemy/Global_enemy.gd"
+Audio="*res://Scenes/Menus/Audio/audio.tscn"
 GlobalPlayer="*res://Scenes/Global/Player/Global_Player.gd"
 GlobalTower="*res://Scenes/Global/Towers/Global_Tower.gd"
-Audio="*res://Scenes/Menus/Audio/audio.tscn"
 GlobalGameLogic="*res://Scenes/Global/Game/Global_Game_logic.gd"
 
 [global_group]
