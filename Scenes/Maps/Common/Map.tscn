@@ -29,9 +29,13 @@ rotates = false
 
 [node name="GameLogic" parent="." node_paths=PackedStringArray("enemy_parent_node", "paths") instance=ExtResource("4_pshhu")]
 position = Vector2(457.917, 802.784)
+health = null
+enemy_stack = null
+waves = null
 wave_number = 3
 wave_length = 1.0
 concurrent_waves = 1
 enemy_parent_node = NodePath("../EnemyPath")
+Player_array = null
 paths = [NodePath("../EnemyPath/EnemyPathFollow")]
 wave_file_path = "res://Scenes/Maps/waves/test_waves.xml"

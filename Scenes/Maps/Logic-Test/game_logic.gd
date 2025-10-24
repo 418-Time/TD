@@ -13,6 +13,7 @@ extends Node2D
 @export var Player_array : Array
 @export var paths : Array[Node]
 @export_file("*.xml") var wave_file_path: String = "res://waves/enemies.xml"
+var game_end: bool = false
 var xml := XMLParser.new()
 var max_waves : int
 
@@ -93,7 +94,7 @@ func spawn_enemy():
 		enemy_parent_node.add_child(spawned_pos)
 
 func take_damage(damage:int):
-	if health-damage == 0:
+	if health-damage <= 0:
 		lose_game()
 	else :
 		health -= damage
@@ -113,9 +114,16 @@ func _on_level_interface_pause() -> void:
 	pass # Replace with function body.
 
 func win_game():
+	if !game_end:
 #   here add things that happen when you win game (add map to list of passed maps or sth)
-	
+		var win_screen = preload("res://Scenes/Menus/win-screen/win_screen.tscn").instantiate()
+		get_parent().add_child(win_screen)
+		game_end=true
 	pass
 	
 func lose_game():
+	if !game_end:
+		var lose_screen = preload("res://Scenes/Menus/lose-screen/lose_screen.tscn").instantiate()
+		get_parent().add_child(lose_screen)
+		game_end=true
 	pass
