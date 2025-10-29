@@ -115,15 +115,11 @@ func _on_level_interface_pause() -> void:
 
 func win_game():
 	if !game_end:
-#   here add things that happen when you win game (add map to list of passed maps or sth)
-		var win_screen = preload("res://Scenes/Menus/win-screen/win_screen.tscn").instantiate()
-		get_parent().add_child(win_screen)
-		game_end=true
+		#   here add things that happen when you win game (add map to list of passed maps or sth)
+		GlobalGameLogic.win_game_signal.emit()
 	pass
 	
 func lose_game():
 	if !game_end:
-		var lose_screen = preload("res://Scenes/Menus/lose-screen/lose_screen.tscn").instantiate()
-		get_parent().add_child(lose_screen)
-		game_end=true
+		GlobalGameLogic.lose_game_signal.emit()
 	pass

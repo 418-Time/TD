@@ -1,5 +1,8 @@
 extends Node
 
+signal win_game_signal
+signal lose_game_signal
+
 var selected_level : int = 0
 var game_paused : bool = false
 
