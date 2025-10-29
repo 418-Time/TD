@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cw7uu184sxeey"]
+[gd_scene load_steps=10 format=3 uid="uid://cw7uu184sxeey"]
 
 [ext_resource type="Script" uid="uid://b5i8c3h24rceu" path="res://Scenes/Menus/Level-interface/level_interface.gd" id="1_7nfen"]
 [ext_resource type="PackedScene" uid="uid://cew6ntfvt56mb" path="res://Scenes/Menus/Level-interface/options_panel.tscn" id="2_aqvas"]
+[ext_resource type="PackedScene" uid="uid://d0c6ubuehpnf5" path="res://Scenes/Menus/win-screen/win_screen.tscn" id="3_0pssq"]
+[ext_resource type="PackedScene" uid="uid://cw5gwiftnanyc" path="res://Scenes/Menus/lose-screen/lose_screen.tscn" id="4_aljah"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n2qs3"]
 bg_color = Color(0.682353, 0.682353, 0.682353, 1)
@@ -207,7 +209,6 @@ offset_right = 44.2559
 offset_bottom = 49.92
 
 [node name="menu" type="Panel" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -309,6 +310,20 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_67hr8")
 theme_override_styles/normal = SubResource("StyleBoxFlat_trrwu")
 text = "Quit
 "
+
+[node name="WinScreen" parent="." instance=ExtResource("3_0pssq")]
+visible = false
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_bottom = 0.5
+
+[node name="LoseScreen" parent="." instance=ExtResource("4_aljah")]
+visible = false
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_bottom = 0.5
 
 [connection signal="pressed" from="HBoxContainer/menu_button" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/pause_button" to="." method="_on_pause_button_pressed"]

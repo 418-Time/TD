@@ -4,12 +4,16 @@ extends Control
 @onready var options_button: Button = $menu/VBoxContainer/options_button
 @onready var quit_button: Button = $menu/VBoxContainer/quit_button
 @onready var options_panel: Panel = $options_panel
+@onready var win_screen: Control = $WinScreen
+@onready var lose_screen: Control = $LoseScreen
 
 const MAIN_MENU = preload("res://Scenes/Menus/Main-Menu/MainMenu.tscn")
 const LEVELS_MAP = preload("res://Scenes/Menus/Levels-map/LevelsMap.tscn")
 signal pause
 
 func _ready():
+	GlobalGameLogic.win_game_signal.connect(_on_win_game_signal)
+	GlobalGameLogic.lose_game_signal.connect(_on_lose_game_signal)
 	options_panel.visible = false
 	menu.visible = false
 	pass
@@ -57,3 +61,13 @@ func _on_map_button_pressed() -> void:
 func _on_pause_button_pressed() -> void:
 	pause.emit()
 	pass # Replace with function body.
+
+func _on_win_game_signal() -> void:
+	if !lose_screen.visible:
+		win_screen.visible = true
+	pass
+	
+func _on_lose_game_signal() -> void:
+	if !win_screen.visible:
+		lose_screen.visible = true
+	pass
