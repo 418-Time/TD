@@ -1,0 +1,133 @@
+[gd_scene load_steps=12 format=3 uid="uid://dexlqgja81k8o"]
+
+[ext_resource type="Script" uid="uid://dq5n8w5h0yxa0" path="res://Scenes/Menus/Main-Menu/main_menu.gd" id="1_v3fht"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bc4mk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bc4mk"]
+bg_color = Color(0.509286, 0.509286, 0.509286, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v3fht"]
+bg_color = Color(0.306923, 0.306923, 0.306923, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b42ut"]
+bg_color = Color(0.683077, 0.683077, 0.683077, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hqtmt"]
+bg_color = Color(0.509804, 0.509804, 0.509804, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tfrft"]
+bg_color = Color(0.305882, 0.305882, 0.305882, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uv623"]
+bg_color = Color(0.682353, 0.682353, 0.682353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mc63j"]
+bg_color = Color(0.509804, 0.509804, 0.509804, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q15nq"]
+bg_color = Color(0.305882, 0.305882, 0.305882, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbd8g"]
+bg_color = Color(0.682353, 0.682353, 0.682353, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v3fht")
+
+[node name="background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -1.0
+offset_right = -2.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="button_container" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -169.5
+offset_top = -33.0
+offset_right = 169.5
+offset_bottom = 191.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 19
+
+[node name="start_game_button" type="Button" parent="button_container"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bc4mk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bc4mk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v3fht")
+theme_override_styles/normal = SubResource("StyleBoxFlat_b42ut")
+text = "Start game"
+
+[node name="options_button" type="Button" parent="button_container"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bc4mk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hqtmt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tfrft")
+theme_override_styles/normal = SubResource("StyleBoxFlat_uv623")
+text = "Options"
+
+[node name="exit_button" type="Button" parent="button_container"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bc4mk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mc63j")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_q15nq")
+theme_override_styles/normal = SubResource("StyleBoxFlat_pbd8g")
+text = "Exit
+"
+
+[node name="title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -372.5
+offset_top = -212.0
+offset_right = 372.5
+offset_bottom = -146.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 46
+text = "Game Title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="button_container/start_game_button" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="button_container/options_button" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="button_container/exit_button" to="." method="_on_exit_button_pressed"]

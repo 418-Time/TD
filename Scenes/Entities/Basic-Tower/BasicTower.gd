@@ -34,11 +34,15 @@ func _on_signal_toggle_attack_area_visible():
 	visible_attack_range.visible = is_attack_radious_visible
 	
 func _process(delta: float) -> void:
-	if enemies_in_range.size() == 0:
-		return
-	if attack_timer.is_stopped():
-		var target := aim_to_target()
-		fire_at_target(target)
+	if GlobalGameLogic.game_paused == true:
+		attack_timer.paused = true
+	else:
+		attack_timer.paused = false
+		if enemies_in_range.size() == 0:
+			return
+		elif attack_timer.is_stopped():
+			var target := aim_to_target()
+			fire_at_target(target)
 
 func aim_to_target() -> Node2D:
 	var target : Node2D
