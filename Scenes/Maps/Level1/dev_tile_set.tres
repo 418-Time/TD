@@ -1,0 +1,17 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://dug80wi16vhah"]
+
+[ext_resource type="Texture2D" uid="uid://c7gpuhoa3jocd" path="res://Assets/Images/Pink+Color+Palette.png" id="1_up3h6"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jg7rb"]
+texture = ExtResource("1_up3h6")
+texture_region_size = Vector2i(32, 32)
+20:0/0 = 0
+20:0/0/custom_data_0 = true
+40:0/0 = 0
+30:0/0 = 0
+
+[resource]
+tile_size = Vector2i(32, 32)
+custom_data_layer_0/name = "buildable"
+custom_data_layer_0/type = 1
+sources/1 = SubResource("TileSetAtlasSource_jg7rb")
